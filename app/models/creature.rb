@@ -1,6 +1,8 @@
 class Creature < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
+  geocoded_by :address, latitude: :lat, longitude: :long
+  after_validation :geocode, if: :will_save_change_to_address?
 
   # Carrierwave uploader for Cloudinary
   mount_uploader :picture, PhotoUploader

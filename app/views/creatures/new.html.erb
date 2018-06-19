@@ -21,8 +21,8 @@
           </div>
 
           <div class="form-group">
-            <%= f.input :picture, placeholder: 'https://www.fbhoy.com/wp-content/uploads/2016/03/como-personalizar-url-pagina-facebook.jpg', label: 'Picture (url)', input_html: { class: 'custom-file-input', type: "file" }, label_html: { class: "col-form-label" } %>
-
+            <%= f.input :picture, label: 'Picture', input_html: { class: 'custom-file-input', type: "file" }, label_html: { class: "col-form-label" } %>
+            <%= f.input :picture_cache, as: :hidden %>
           </div>
 
           <div class="form-group">
@@ -47,6 +47,7 @@
             <div class="form-check form-check-inline col-xs-2"><%= f.input :domestic, as: :boolean, label_html: { class: 'fas fa-home' }, label: '&nbsp;'.html_safe %></div>
           </div>
         </div>
+
         <div class="modal-footer">
           <div class="form-group">
             <%= f.button :submit, "Create!", class: "btn btn-primary" %>
