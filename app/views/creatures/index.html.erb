@@ -1,12 +1,15 @@
-<h1>Welcome to the home of Mythy!</h1>
-
-
-<div class="search-bar">
-  <h2> Search by name </h2>
-  <%= form_tag(search_creatures_path, method: :get) do %>
-  <%= text_field_tag :search, params[:name], placeholder: "Enter a creature name", class: "form-control" %>
-  <div class="btn-search">
-    <%= submit_tag 'Search' %>
+<div class="banner">
+  <div class="banner-content">
+    <h1>Mythy</h1>
+    <p>Discover mythological creatures near you.</p>
+    <div class="search-bar">
+      <h2> Search by name </h2>
+      <%= form_tag(search_creatures_path, method: :get) do %>
+      <%= text_field_tag :search, params[:name], placeholder: "Enter a creature name", class: "form-control" %>
+      <div class="btn-search">
+        <%= submit_tag 'Search' %>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>
-<% end %>

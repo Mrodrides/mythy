@@ -36,6 +36,12 @@ class CreaturesController < ApplicationController
 
   def search
     # Action when you perform a search
+    if params[:search].empty? 
+      redirect_to(root_path, alert: "Enter a name!")
+    else  
+      @parameter = params[:search] 
+      @results = Creature.all.where("Name LIKE :search", search: @parameter)
+    end  
   end
 
   private
