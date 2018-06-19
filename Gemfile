@@ -33,6 +33,6 @@ group :development, :test do
 end
 
 # Faker gem for DB seeds
-# group :development do
+group :development do
   gem 'faker'
-# end
+end
