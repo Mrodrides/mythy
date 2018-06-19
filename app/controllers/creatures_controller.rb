@@ -16,7 +16,6 @@ class CreaturesController < ApplicationController
 
   def create
     # As a user I can put a creature to be booked
-    raise
     @creature = Creature.new(creature_params)
     @creature.user_id = current_user.id
     if @creature.save
@@ -37,6 +36,12 @@ class CreaturesController < ApplicationController
 
   def search
     # Action when you perform a search
+    if params[:search].blank? 
+      puts "Enter a name!"
+    else  
+      @parameter = params[:search] 
+      @results = Creatures.all.where(":name LIKE :search", search: @parameter)
+    end  
   end
 
   private
