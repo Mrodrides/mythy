@@ -17,7 +17,6 @@ class CreaturesController < ApplicationController
   def create
     # As a user I can put a creature to be booked
     @creature = Creature.new(creature_params)
-    @creature.set_coordinates?
     @creature.user_id = current_user.id
     if @creature.save
       redirect_to creature_path(@creature)
