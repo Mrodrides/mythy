@@ -36,12 +36,12 @@ class CreaturesController < ApplicationController
 
   def search
     # Action when you perform a search
-    if params[:search].empty? 
+    if params[:search].empty?
       redirect_to(root_path, alert: "Enter a name!")
-    else  
-      @parameter = params[:search] 
+    else
+      @parameter = params[:search]
       @results = Creature.all.where("Name LIKE :search", search: @parameter)
-    end  
+    end
   end
 
   private
@@ -51,6 +51,6 @@ class CreaturesController < ApplicationController
   end
 
   def creature_params
-    params.require(:creature).permit(:address, :name, :picture, :price)
+    params.require(:creature).permit(:name, :address, :picture, :price, :description, :care, :diet, :wifi, :fly, :mount, :dangerous, :shitty, :domestic)
   end
 end
