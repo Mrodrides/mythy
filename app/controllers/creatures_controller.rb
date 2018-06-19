@@ -37,6 +37,8 @@ class CreaturesController < ApplicationController
 
   def search
     # Action when you perform a search
+    raise
+    # params[:search]
   end
 
   private
