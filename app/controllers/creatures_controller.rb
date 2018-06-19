@@ -40,7 +40,7 @@ class CreaturesController < ApplicationController
       puts "Enter a name!"
     else  
       @parameter = params[:search] 
-      @results = Creatures.all.where(":name LIKE :search", search: @parameter)
+      @results = Creature.all.where("Name LIKE :search", search: @parameter)
     end  
   end
 

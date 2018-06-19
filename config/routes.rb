@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'creatures#index'
   resources :creatures do
     collection do                       
-      get 'search', to: "creatures#search"
+      get 'search', to: "creatures#search", :as => 'search_creatures'
     end    
   end
 
