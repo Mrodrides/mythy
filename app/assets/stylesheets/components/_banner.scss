@@ -54,8 +54,17 @@
   width: 40%;
   padding: 9px 10px;
   border-radius: 40px;
-  transition: background 0.5s ease;
+  transition: all 0.3s;
   &:hover {
-    border: 7px inset #071E22;
+    border: 7px inset #1C7570;
   }
 }
+
+#search {
+  border-radius :6px;
+  &:focus {
+    border: 5px solid #29AAA4
+  }
+}
+
+
