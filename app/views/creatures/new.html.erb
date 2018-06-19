@@ -11,48 +11,49 @@
         </button>
       </div>
 
-      <div class="modal-body">
-
-          <%= simple_form_for @creature do |f| %>
-            <div class="form-group">
-              <%= f.input :name, placeholder: 'fluffy', label: 'Creature name' , input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
-            </div>
-            <div class="form-group">
-              <%= f.input :address, placeholder: '3 Edgar Buildings George Street Bath England BA1 2FJ', label: 'Address', input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
-              <%= f.input :picture, placeholder: 'https://www.fbhoy.com/wp-content/uploads/2016/03/como-personalizar-url-pagina-facebook.jpg', label: 'Picture (url)', input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
-            </div>
-            <div class="form-group">
-              <%= f.input :price, placeholder: '200', label: 'Price per day', input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
-            </div>
-            <div class="form-group">
-              <%= f.input :description, placeholder: 'A charming dragon who loves to play with fire', label: 'Description', input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
-            </div>
-            <div class="form-group">
-              <%= f.input :care, placeholder: 'He needs to sleep in a nice area and outside of the house', label: 'Caring details', input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
-            </div>
-            <div class="form-group">
-              <%= f.input :diet, placeholder: 'fluffy', label: 'Diet', input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
-            </div>
-            <div class="form-group">
-              <%= f.button :submit, "Create!", class: "btn btn-primary" %>
-            </div>
-          <% end %>
-<!--
+      <%= simple_form_for @creature do |f| %>
+        <div class="modal-body">
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Recipient:</label>
-            <input type="text" class="form-control" id="recipient-name">
+            <%= f.input :name, placeholder: 'fluffy', label: 'Creature name' , input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :address, placeholder: '3 Edgar Buildings George Street Bath England BA1 2FJ', label: 'Address', input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
           </div>
 
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Message:</label>
-            <textarea class="form-control" id="message-text"></textarea>
-          </div> -->
+            <%= f.input :picture, placeholder: 'https://www.fbhoy.com/wp-content/uploads/2016/03/como-personalizar-url-pagina-facebook.jpg', label: 'Picture (url)', input_html: { class: 'custom-file-input', type: "file" }, label_html: { class: "col-form-label" } %>
 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Create!</button>
-      </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.input :price, placeholder: '200', label: 'Price per day', input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :description, placeholder: 'A charming dragon who loves to play with fire', label: 'Description', input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :care, placeholder: 'He needs to sleep in a nice area and outside of the house', label: 'Caring details', input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :diet, placeholder: 'He eat cookies', label: 'Diet', input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
+          </div>
+
+          <div class="row">
+            <div class="form-check form-check-inline col-xs-2"><%= f.input :wifi, as: :boolean, label_html: { class: 'fas fa-wifi' }, label: '&nbsp;'.html_safe %></div>
+            <div class="form-check form-check-inline col-xs-2"><%= f.input :fly, as: :boolean, label_html: { class: 'fas fa-dove' }, label: '&nbsp;'.html_safe %></div>
+            <div class="form-check form-check-inline col-xs-2"><%= f.input :mount, as: :boolean, label_html: { class: 'fas fa-car' }, label: '&nbsp;'.html_safe %></div>
+            <div class="form-check form-check-inline col-xs-2"><%= f.input :dangerous, as: :boolean, label_html: { class: 'fas fa-exclamation-triangle' }, label: '&nbsp;'.html_safe %></div>
+            <div class="form-check form-check-inline col-xs-2"><%= f.input :shitty, as: :boolean, label_html: { class: 'fas fa-quidditch' }, label: '&nbsp;'.html_safe %></div>
+            <div class="form-check form-check-inline col-xs-2"><%= f.input :domestic, as: :boolean, label_html: { class: 'fas fa-home' }, label: '&nbsp;'.html_safe %></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="form-group">
+            <%= f.button :submit, "Create!", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+
     </div>
   </div>
 </div>
