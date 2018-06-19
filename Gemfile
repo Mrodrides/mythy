@@ -34,3 +34,4 @@ group :development, :test do
   group :development do
   gem 'faker'
 end
+end
