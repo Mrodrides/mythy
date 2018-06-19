@@ -20,24 +20,30 @@ USERS = [
 ]
 
 puts 'Creating users'
-users = User.create!(USERS)
+User.create!(USERS)
 
 puts 'Setting creatures variable'
+image_url = "http://res.cloudinary.com/robopro/image/upload/ar_16:9,c_fill,e_sharpen,g_auto/v1529407762/dragon.jpg"
 CREATURES = [
-  {user_id: User.where("email = ?", "user01@test.com")[0][:id], name: "Creature01", address: Faker::Address.full_address, picture: "picture01", price: "100", description: "Lorem ipsum dolores"},
-  {user_id: User.where("email = ?", "user01@test.com")[0][:id], name: "Creature02", address: Faker::Address.full_address, picture: "picture02", price: "200", description: "Lorem ipsum dolores"},
-  {user_id: User.where("email = ?", "user01@test.com")[0][:id], name: "Creature03", address: Faker::Address.full_address, picture: "picture03", price: "300", description: "Lorem ipsum dolores"},
-  {user_id: User.where("email = ?", "user02@test.com")[0][:id], name: "Creature04", address: Faker::Address.full_address, picture: "picture04", price: "400", description: "Lorem ipsum dolores"},
-  {user_id: User.where("email = ?", "user02@test.com")[0][:id], name: "Creature05", address: Faker::Address.full_address, picture: "picture05", price: "500", description: "Lorem ipsum dolores"},
-  {user_id: User.where("email = ?", "user02@test.com")[0][:id], name: "Creature06", address: Faker::Address.full_address, picture: "picture06", price: "600", description: "Lorem ipsum dolores"},
-  {user_id: User.where("email = ?", "user03@test.com")[0][:id], name: "Creature07", address: Faker::Address.full_address, picture: "picture07", price: "700", description: "Lorem ipsum dolores"},
-  {user_id: User.where("email = ?", "user03@test.com")[0][:id], name: "Creature08", address: Faker::Address.full_address, picture: "picture08", price: "800", description: "Lorem ipsum dolores"},
-  {user_id: User.where("email = ?", "user04@test.com")[0][:id], name: "Creature09", address: Faker::Address.full_address, picture: "picture09", price: "900", description: "Lorem ipsum dolores"},
-  {user_id: User.where("email = ?", "user04@test.com")[0][:id], name: "Creature10", address: Faker::Address.full_address, picture: "picture10", price: "1000", description: "Lorem ipsum dolores"}
+  {user_id: User.where("email = ?", "user01@test.com")[0][:id], name: "Creature01", address: Faker::Address.full_address, picture: image_url, price: "100", description: "Lorem ipsum dolores"},
+  {user_id: User.where("email = ?", "user01@test.com")[0][:id], name: "Creature02", address: Faker::Address.full_address, picture: image_url, price: "200", description: "Lorem ipsum dolores"},
+  {user_id: User.where("email = ?", "user01@test.com")[0][:id], name: "Creature03", address: Faker::Address.full_address, picture: image_url, price: "300", description: "Lorem ipsum dolores"},
+  {user_id: User.where("email = ?", "user02@test.com")[0][:id], name: "Creature04", address: Faker::Address.full_address, picture: image_url, price: "400", description: "Lorem ipsum dolores"},
+  {user_id: User.where("email = ?", "user02@test.com")[0][:id], name: "Creature05", address: Faker::Address.full_address, picture: image_url, price: "500", description: "Lorem ipsum dolores"},
+  {user_id: User.where("email = ?", "user02@test.com")[0][:id], name: "Creature06", address: Faker::Address.full_address, picture: image_url, price: "600", description: "Lorem ipsum dolores"},
+  {user_id: User.where("email = ?", "user03@test.com")[0][:id], name: "Creature07", address: Faker::Address.full_address, picture: image_url, price: "700", description: "Lorem ipsum dolores"},
+  {user_id: User.where("email = ?", "user03@test.com")[0][:id], name: "Creature08", address: Faker::Address.full_address, picture: image_url, price: "800", description: "Lorem ipsum dolores"},
+  {user_id: User.where("email = ?", "user04@test.com")[0][:id], name: "Creature09", address: Faker::Address.full_address, picture: image_url, price: "900", description: "Lorem ipsum dolores"},
+  {user_id: User.where("email = ?", "user04@test.com")[0][:id], name: "Creature10", address: Faker::Address.full_address, picture: image_url, price: "1000", description: "Lorem ipsum dolores"}
 ]
 
 puts 'Creating creatures'
-creatures = Creature.create!(CREATURES)
+# Creature.create!(CREATURES)
+CREATURES.each do |creature|
+  new_creature = Creature.new(creature)
+  new_creature.remote_picture_url = image_url
+  new_creature.save
+end
 
 puts 'Setting bookings variable'
 BOOKINGS = [
