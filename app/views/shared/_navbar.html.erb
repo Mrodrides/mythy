@@ -11,8 +11,11 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+
       <%= link_to "Manage Bookings", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Add a creature", new_creature_path , class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Add a creature", "#", class: "navbar-wagon-item navbar-wagon-link", "data-toggle" => "modal", "data-target" => "#newCreatureForm" %>
+
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">

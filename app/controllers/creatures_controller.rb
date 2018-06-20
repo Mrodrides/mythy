@@ -11,7 +11,7 @@ class CreaturesController < ApplicationController
   end
 
   def new
-    @creature = Creature.new
+    # @creature = Creature.new
   end
 
   def create
