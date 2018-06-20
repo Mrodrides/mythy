@@ -53,7 +53,7 @@ end
 puts 'Creating creatures'
 creatures = []
 # CHANGE NUMBER OF CREATURES TO MORE FOR HEROKU!!!
-25.times do
+5.times do
   new_creature =Creature.new({user: User.all.sample,
                               name: CREATURE_NAMES.sample,
                               address: "#{STREET_NUMBERS.sample} #{STREETS.sample}, #{CITY}",
