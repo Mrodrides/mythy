@@ -4,9 +4,9 @@
     <p>Discover mythological creatures near you.</p>
     <%= image_tag "logo_transparent.png", height: '50%', width: '50%' %>
     <div class="search-bar">
-      <h2> Search by name </h2>
+      <h2> Search by address </h2>
       <%= form_tag(search_creatures_path, method: :get) do %>
-      <%= text_field_tag :search, params[:name], placeholder: "Enter a creature name", class: "form-control" %>
+      <%= text_field_tag :search, params[:name], placeholder: "Enter an address", class: "form-control", id: "search-creature" %>
       <div class="btn-search">
         <%= submit_tag 'Search' %>
       </div>
