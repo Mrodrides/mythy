@@ -1,26 +1,19 @@
-<div class="main container">
-  <div class="cards-container" style="margin-left: 0px, margin-right: 0px;">
+
+<div class="main-container" style="margin-left: 0px, margin-right: 0px;">
+  <div class="container">
     <div class="row">
-      <div class="col-sm-12 col-md-8">
-        <div class="container">
-          <div class="row">
-            <% @results.each do |result| %>
-            <div class="col-sm-12 col-md-4">
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path result.picture %>');">
-                <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
-                <div class="card-description">
-                  <h2><%= result.name %></h2>
-                </div>
-                <%= link_to "", creature_path(result), class: "card-link" %>
-              </div>
-            </div>
-            <% end %>
+      <% @results.each do |result| %>
+      <div class="col-sm-12 col-md-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path result.picture %>');">
+          <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
+          <div class="card-description">
+            <h2><%= result.name %></h2>
           </div>
+          <%= link_to "", creature_path(result), class: "card-link" %>
         </div>
       </div>
+      <% end %>
     </div>
   </div>
- <div id="map", style="width: 100%, height: 600px" > </div>
+  <div id="map"></div>
 </div>
-
-
