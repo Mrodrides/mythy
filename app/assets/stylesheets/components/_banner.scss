@@ -1,5 +1,5 @@
 .banner {
-  background-image: url(banner_image.jpg);
+  background-image: asset-url('banner_image.jpg');
   text-align: center;
   height: 100vh;
   background-size: cover !important;
