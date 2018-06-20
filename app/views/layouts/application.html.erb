@@ -10,14 +10,14 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <%= render 'shared/navbar' %>
     <!-- ? These two aren't needed with render shared flashes ? -->
     <!-- <p class="notice"><%= notice %></p> -->
     <!-- <p class="alert"><%= alert %></p> -->
-    <%= render 'shared/flashes' %>
 
     <!-- Added to avoid the fixed navbar overlapping -->
+      <%= render 'shared/navbar' %>
     <div style="margin-top: 70px;">
+      <%= render 'shared/flashes' %>
       <%= yield %>
     </div>
 
