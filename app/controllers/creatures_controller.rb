@@ -11,7 +11,7 @@ class CreaturesController < ApplicationController
   end
 
   def new
-    @creature = Creature.new
+    # @creature = Creature.new
   end
 
   def create
@@ -37,9 +37,16 @@ class CreaturesController < ApplicationController
   def search
     # Action when you perform a search
     if params[:search].empty?
-      redirect_to(root_path, alert: "Enter a name!")
+      redirect_to(root_path, alert: "Enter an address!")
     else
-      @results = Creature.where("UPPER(name) LIKE ?", "%#{params[:search].upcase}%")
+      @coordinates = Geocoder.search("#{params[:search]}").first.coordinates
+      @results = Creature.near(@coordinates).limit(25)
+      @markers = @results.map do |creature|
+      {
+        lat: creature.lat,
+        lng: creature.long
+      }
+      end
     end
   end
 

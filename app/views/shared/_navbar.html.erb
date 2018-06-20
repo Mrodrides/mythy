@@ -11,8 +11,11 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+
       <%= link_to "Manage Bookings", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Add a creature", new_creature_path , class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Add a creature", "#", class: "navbar-wagon-item navbar-wagon-link", "data-toggle" => "modal", "data-target" => "#newCreatureForm" %>
+
+
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
@@ -20,7 +23,7 @@
           <% if current_user.picture.url.nil? %>
             <%= image_tag "avatar.jpeg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
-            <%= cl_image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <%= cl_image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown", title: "#{current_user.username}" %>
           <% end %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
