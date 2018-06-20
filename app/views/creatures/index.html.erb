@@ -13,3 +13,19 @@
     <% end %>
   </div>
 </div>
+
+<div class="container">
+  <div class="row">
+      <% @creatures.sample(9).shuffle.each do |creature| %>
+        <div class="col-sm-12 col-md-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path creature.picture %>');">
+            <div class="card-description">
+              <h2><%= creature.name %></h2>
+            </div>
+            <%= link_to "", creature_path(creature), class: "card-link" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
