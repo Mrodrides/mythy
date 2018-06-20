@@ -5,24 +5,21 @@
         <%= cl_image_tag @creature.picture %>
       </div>
       <div class="col-sm-12 show-name">
-        <%= @creature.name %>
+        <h1><%= @creature.name %></h1>
       </div>
       <div class="col-sm-12 show-icons">
         <%= @creature.wifi %>
       </div>
       <div class="col-sm-12 show-descriptions">
-        <h1>DESCRIPTION</h1>
+        <h2>Description</h2>
         <p><%= @creature.description %></p>
         <hr>
-        <h1>CARE</h1>
+        <h2>Care</h2>
         <p><%= @creature.care %></p>
         <hr>
-        <h1>DIET</h1>
+        <h2>Diet</h2>
         <p><%= @creature.diet %></p>
       </div>
     </div>
-  </div>
-  <div class="show-bookings">
-    <h1>BOOKINGS</h1>
   </div>
 </div>
