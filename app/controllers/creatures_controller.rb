@@ -39,8 +39,7 @@ class CreaturesController < ApplicationController
     if params[:search].empty?
       redirect_to(root_path, alert: "Enter a name!")
     else
-      @parameter = params[:search]
-      @results = Creature.all.where("Name LIKE :search", search: @parameter)
+      @results = Creature.where("UPPER(name) LIKE ?", "%#{params[:search].upcase}%")
     end
   end
 
