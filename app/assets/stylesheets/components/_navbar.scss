@@ -45,6 +45,11 @@
   &:visited {
     color: white;
   }
+  &:active, &:focus {
+  outline: 0;
+  border: none;
+  -moz-outline-style: none;
+}
 }
 .navbar-wagon-link:hover {
   color: #71C4B3;
