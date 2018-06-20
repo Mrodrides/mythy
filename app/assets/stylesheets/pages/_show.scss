@@ -1,3 +1,43 @@
-.main-container {
-  display: flex;
+h1 {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-style: italic;
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 0.5px 2px #041F24;
 }
+
+h2 {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  opacity: 0.9;
+  margin-bottom: 30px;
+  text-shadow: 0.6px 2px #041F24;
+}
+
+p {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 18px;
+  font-weight: lighter;
+  color: white;
+  opacity: 0.7;
+  margin-bottom: 30px;
+}
+
+hr {
+  border: 2px dashed #041F24;
+  width: 800px;
+}
+
+.show-picture {
+  width: 500px;
+  overflow: hidden;
+}
+.show-picture img {
+  display: block;
+  width: 100%;
+}
+
+

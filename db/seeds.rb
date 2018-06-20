@@ -32,16 +32,23 @@ end
 BOOLS = [true, false]
 
 puts 'Setting users variable'
-USERS = [
-  {email: "user01@test.com", password: "password", password_confirmation: "password"},
-  {email: "user02@test.com", password: "password", password_confirmation: "password"},
-  {email: "user03@test.com", password: "password", password_confirmation: "password"},
-  {email: "user04@test.com", password: "password", password_confirmation: "password"},
-  {email: "user05@test.com", password: "password", password_confirmation: "password"}
-]
+USER_EMAILS = ["user01@test.com", "user02@test.com", "user03@test.com", "user04@test.com", "user05@test.com"]
+PASSWORD = "password"
+FIRST_NAMES = ["Eminem", "Clara", "Dagobert", "Pepito", "Evelyn"]
+LAST_NAMES = ["Bonaparte", "Janssens", "Maes", "Mertens", "Jacobs"]
 
 puts 'Creating users'
-User.create!(USERS)
+USER_EMAILS.each do |email|
+  first_name = FIRST_NAMES.sample
+  new_user = User.new(email: email,
+                      password: PASSWORD,
+                      password_confirmation: PASSWORD,
+                      username: first_name.downcase,
+                      first_name: first_name,
+                      second_name: LAST_NAMES.sample,
+                      address: "#{STREET_NUMBERS.sample} #{STREETS.sample}, #{CITY}")
+  new_user.save
+end
 
 puts 'Creating creatures'
 creatures = []

@@ -8,6 +8,16 @@
   border-radius: 5px;
   margin-top: 15px;
   margin-bottom: 15px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 0 10px #030F10;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 25px;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 .card-user {
   position: absolute;
@@ -29,8 +39,10 @@
   left: 10px;
 }
 .card-description h2 {
-  font-size: 24px;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 27px;
 }
+
 .card-description p {
   font-size: 14px;
   font-weight: lighter;
@@ -44,9 +56,12 @@
   z-index: 2;
   background: black;
   opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
+  transition: all 0.5s;
+  &:hover {
+    opacity: 0.2;
+    border: 2px solid #29AAA4;
+    box-shadow: 3px 5px 15px #030F10;
+  }
 }
 
 .show-grid {
