@@ -32,9 +32,12 @@ hr {
 }
 
 .show-picture {
+  width: 500px;
+  overflow: hidden;
+}
+.show-picture img {
+  display: block;
   width: 100%;
-  height: auto;
-  background-size: 100% 100%;
 }
 
 
