@@ -1,22 +1,23 @@
 body {
   background-color: #05272D;
+}
 
 h1 {
   font-family: 'Roboto', sans-serif;
   color: white;
   font-style: italic;
-  font-size: 50px;
+  font-size: 45px;
   font-weight: bold;
-  text-shadow: 0.5px 2px #041F24;
+  text-shadow: 3px 2px black;
 }
 
 h2 {
   font-family: 'Roboto Mono', monospace;
   font-size: 25px;
-  font-weight: bold;
   color: white;
-  opacity: 0.9;
-  text-shadow: 0.6px 2px #041F24;
+  opacity: 1;
+  margin-bottom: 30px;
+  text-shadow: 0.8px 1px black;
 }
 
 h3 {
@@ -38,6 +39,7 @@ p {
 }
 
 hr {
-  border: 2px dashed #041F24;
-  width: 800px;
+  border: 2px solid #FF7E45;
+  width: 600px;
 }
+

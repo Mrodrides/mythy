@@ -1,38 +1,4 @@
-h1 {
-  font-family: 'Roboto', sans-serif;
-  color: white;
-  font-style: italic;
-  font-size: 45px;
-  font-weight: bold;
-  text-shadow: 3px 2px black;
-}
-
-h2 {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 25px;
-  color: white;
-  opacity: 1;
-  margin-bottom: 30px;
-  text-shadow: 0.8px 1px black;
-}
-
-p {
-  font-family: 'Roboto Mono', monospace;
-  font-size: 18px;
-  font-weight: lighter;
-  color: white;
-  opacity: 0.7;
-  margin-bottom: 30px;
-}
-
-hr {
-  border: 2px solid #FF7E45;
-  width: 600px;
-}
-
 .picture-center {
- width: 500px;
-.show-picture {
   overflow: hidden;
   padding: 10px;
   padding-top: 35px;
