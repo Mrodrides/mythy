@@ -22,9 +22,9 @@ class BookingsController < ApplicationController
   end
 
   def update
-    raise
-    # I can only update if Im the recipent of the booking
-    # if current_user.id ==
+    @booking.status = params[:status]
+    @booking.save
+    redirect_to bookings_path
   end
 
   def destroy
@@ -45,7 +45,7 @@ class BookingsController < ApplicationController
 
   def booking_params
     #idk
-    params.require(:booking).permit(:start_date, :end_date, :creature_id)
+    params.require(:booking).permit(:start_date, :end_date, :creature_id, :status)
   end
 
   def set_booking

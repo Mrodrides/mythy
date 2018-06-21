@@ -1,22 +1,7 @@
-h1 {
-  margin-bottom: 40px;
-  text-align: center;
-}
-
-ul {
-align-content: center;
-}
-
-.tabs {
-  display: flex;
-  justify-content: center;
-}
-
 .tabs a {
   color: white;
   &:active {
     color: #030F10;
-    border-bottom: 3.6px solid #030F10;
   }
 }
 .tabs a:hover {
@@ -25,25 +10,12 @@ align-content: center;
   opacity: 0.8;
   color: #030F10;
 }
-.tabs h3 {
-  font-family: 'Roboto Mono', monospace;
-  opacity: 0.8;
-  font-size: 22px;
-  font-weight: lighter;
-  margin-top: 0;
-}
+
 .tabs p {
   opacity: 0.5;
   margin-bottom: 0;
 }
 .tab {
-  flex: 0 0 25%;
-  text-align: center;
-}
-.tab:first-child {
-  border-radius: 10px 0 0 0;
-}
-
-.tab:last-child {
-  border-radius: 0 10px 0 0;
+  display: flex;
+  justify-content: center;
 }
