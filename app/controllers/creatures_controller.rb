@@ -1,5 +1,5 @@
 class CreaturesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :search]
   before_action :set_creature, only: [:show, :edit, :update, :delete]
   def index
     # As a user I can see al creatures as a display list
@@ -22,7 +22,7 @@ class CreaturesController < ApplicationController
     if @creature.save
       redirect_to creature_path(@creature)
     else
-      render :new
+      redirect_back(fallback_location: root_path, alert: @creature.errors.full_messages.join("; "))
     end
   end
 

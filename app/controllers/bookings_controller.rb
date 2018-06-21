@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking
+  before_action :set_booking, only: [:update, :destroy]
   def index
     @incoming = []
     current_user.creatures.each do |creature|
@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
 
   def create
     # I cant book my own creature
-    raise
+    parse_dates
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     if @booking.save
@@ -22,9 +22,9 @@ class BookingsController < ApplicationController
   end
 
   def update
-    raise
-    # I can only update if Im the recipent of the booking
-    # if current_user.id == 
+    @booking.status = params[:status]
+    @booking.save
+    redirect_to bookings_path
   end
 
   def destroy
@@ -38,8 +38,14 @@ class BookingsController < ApplicationController
 
   private
 
+  def parse_dates
+    params[:booking][:start_date] = Date.parse(params[:booking][:start_date])
+    params[:booking][:end_date] = Date.parse(params[:booking][:end_date])
+  end
+
   def booking_params
     #idk
+    params.require(:booking).permit(:start_date, :end_date, :creature_id, :status)
   end
 
   def set_booking

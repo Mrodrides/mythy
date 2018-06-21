@@ -6,13 +6,13 @@
   <% end %>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <div class="navbar-wagon-right hidden-xs   hidden-sm">
 
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
 
-      <%= link_to "Manage Bookings", "#", class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Manage Bookings", bookings_path , class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Add a creature", "#", class: "navbar-wagon-item navbar-wagon-link", "data-toggle" => "modal", "data-target" => "#newCreatureForm" %>
 
 
@@ -21,7 +21,7 @@
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <% if current_user.picture.url.nil? %>
-            <%= image_tag "avatar.jpeg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <%= image_tag "https://res.cloudinary.com/robopro/image/upload/v1529505073/avatar.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
             <%= cl_image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown", title: "#{current_user.username}" %>
           <% end %>
@@ -46,7 +46,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Login", "#", class: "navbar-wagon-item navbar-wagon-link", "data-toggle" => "modal", "data-target" => "#loginForm" %>
     <% end %>
   </div>
 
