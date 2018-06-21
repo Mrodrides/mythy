@@ -10,14 +10,14 @@
   opacity: 0.8;
   color: #030F10;
 }
-
+.tabs a:visited {
+  color:white;
+}
 .tabs p {
   opacity: 0.5;
   margin-bottom: 0;
 }
 .tab {
-
   display: flex;
   justify-content: center;
-
 }
