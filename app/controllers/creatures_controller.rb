@@ -1,5 +1,5 @@
 class CreaturesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :search]
   before_action :set_creature, only: [:show, :edit, :update, :delete]
   def index
     # As a user I can see al creatures as a display list

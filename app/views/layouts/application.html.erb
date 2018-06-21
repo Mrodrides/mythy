@@ -3,19 +3,15 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>TODO</title>
+    <title><%= page_title %></title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <!-- ? These two aren't needed with render shared flashes ? -->
-    <!-- <p class="notice"><%= notice %></p> -->
-    <!-- <p class="alert"><%= alert %></p> -->
-
+    <%= render 'shared/navbar' %>
     <!-- Added to avoid the fixed navbar overlapping -->
-      <%= render 'shared/navbar' %>
     <div style="margin-top: 70px;">
       <%= render 'shared/flashes' %>
       <%= yield %>
