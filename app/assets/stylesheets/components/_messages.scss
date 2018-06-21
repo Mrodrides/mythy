@@ -45,16 +45,16 @@
 .message-body h3 {
   white-space: pre;
 }
-.message-status {
-  font-size: 14px;
+.message-status p {
+  font-size: 20px;
   font-weight: bold;
 }
 .status.accepted {
   color: white;
-  opacity: 0.9;
 }
 .status.declined {
   color: red;
+  opacity: 0.9;
 }
 .status.pending {
   color: lightgrey;
