@@ -8,6 +8,7 @@ class CreaturesController < ApplicationController
 
   def show
     # As a user I can look for a specific creature
+    @user = current_user
   end
 
   def new

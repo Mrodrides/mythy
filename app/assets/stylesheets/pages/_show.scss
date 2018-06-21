@@ -2,19 +2,18 @@ h1 {
   font-family: 'Roboto', sans-serif;
   color: white;
   font-style: italic;
-  font-size: 50px;
+  font-size: 45px;
   font-weight: bold;
-  text-shadow: 0.5px 2px #041F24;
+  text-shadow: 3px 2px black;
 }
 
 h2 {
   font-family: 'Roboto Mono', monospace;
   font-size: 25px;
-  font-weight: bold;
   color: white;
-  opacity: 0.9;
+  opacity: 1;
   margin-bottom: 30px;
-  text-shadow: 0.6px 2px #041F24;
+  text-shadow: 0.8px 1px black;
 }
 
 p {
@@ -27,17 +26,24 @@ p {
 }
 
 hr {
-  border: 2px dashed #041F24;
-  width: 800px;
+  border: 2px solid #FF7E45;
+  width: 600px;
 }
 
-.show-picture {
-  width: 500px;
+.picture-center {
   overflow: hidden;
+  padding: 10px;
+  padding-top: 35px;
+  position: sticky !important;
 }
-.show-picture img {
+.picture-center img {
   display: block;
-  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 350px;
+  width: 480px;
+  border-radius: 2px;
+  box-shadow: 0 5px 10px #030F10
 }
 
 .show-align {
@@ -45,4 +51,35 @@ hr {
   text-align: center;
 }
 
+.icon-off {
+  color: #9AD4D6;
+}
+
+.icon-on {
+  color: #FF7E45;
+}
+
+.icons-layout {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.show-name {
+  position: relative;
+  padding: 10px;
+  background-color: #0C4E56;
+  border-radius: 2px;
+}
+
+.description-row {
+  padding: 28px;
+  margin: 15px;
+}
+
+a:visited {
+  color: #071E22;
+  text-decoration: none;
+  border: none;
+}
 
