@@ -1,25 +1,8 @@
 <div class="main-container show-align">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-sm-7">
-        <div class="row description-row">
-          <div class="col-sm-12 show-name">
-            <h1><%= @creature.name %></h1>
-            <p> <%= @creature.address %></p>
-          </div>
-          <div class="col-sm-12 show-descriptions">
-            <h2>Description</h2>
-            <p><%= @creature.description %></p>
-            <hr>
-            <h2>Care</h2>
-            <p><%= @creature.care %></p>
-            <hr>
-            <h2>Diet</h2>
-            <p><%= @creature.diet %></p>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-5 picture-center">
+
+      <div class="col-sm-12 col-md-5 col-md-push-7 picture-center">
         <div class="row">
           <%= cl_image_tag @creature.picture %>
         </div>
@@ -90,6 +73,24 @@
           <% else %>
             <%= link_to "Edit Creature", "#", class: "btn-search", type: "button"%>
           <% end %>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-7 col-md-pull-5">
+        <div class="row description-row">
+          <div class="col-sm-12 show-name">
+            <h1><%= @creature.name %></h1>
+            <p> <%= @creature.address %></p>
+          </div>
+          <div class="col-sm-12 show-descriptions">
+            <h2>Description</h2>
+            <p><%= @creature.description %></p>
+            <hr>
+            <h2>Care</h2>
+            <p><%= @creature.care %></p>
+            <hr>
+            <h2>Diet</h2>
+            <p><%= @creature.diet %></p>
+          </div>
         </div>
       </div>
     </div>
