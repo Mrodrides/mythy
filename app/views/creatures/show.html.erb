@@ -1,27 +1,100 @@
 <div class="main-container show-align">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 show-picture">
-        <%= cl_image_tag @creature.picture %>
+      <div class="col-xs-12 col-sm-7">
+        <div class="row description-row">
+          <div class="col-sm-12 show-name">
+            <h1><%= @creature.name %></h1>
+            <p> <%= @creature.address %></p>
+          </div>
+          <div class="col-sm-12 show-descriptions">
+            <h2>Description</h2>
+            <p><%= @creature.description %></p>
+            <hr>
+            <h2>Care</h2>
+            <p><%= @creature.care %></p>
+            <hr>
+            <h2>Diet</h2>
+            <p><%= @creature.diet %></p>
+          </div>
+        </div>
       </div>
-      <div class="col-sm-12 show-name">
-        <h1><%= @creature.name %></h1>
-      </div>
-      <div class="col-sm-12 show-icons">
-        <%= @creature.wifi %>
-      </div>
-      <div class="col-sm-12 show-descriptions">
-        <h2>Description</h2>
-        <p><%= @creature.description %></p>
-        <hr>
-        <h2>Care</h2>
-        <p><%= @creature.care %></p>
-        <hr>
-        <h2>Diet</h2>
-        <p><%= @creature.diet %></p>
+      <div class="col-xs-12 col-sm-5 picture-center">
+        <div class="row">
+          <%= cl_image_tag @creature.picture %>
+        </div>
+        <div class="row icons-layout">
+          <% if @creature.wifi %>
+          <div class="col-xs-4 icon-off">
+            <i class="fas fa-wifi", title="Wifi"></i>
+          </div>
+          <% else %>
+          <div class="col-xs-4 icon-on">
+            <i class="fas fa-wifi", title="Wifi"></i>
+          </div>
+          <% end %>
+
+          <% if @creature.fly %>
+          <div class="col-xs-4 icon-off">
+            <i class="fas fa-dove", title="fly"></i>
+          </div>
+          <% else %>
+          <div class="col-xs-4 icon-on">
+            <i class="fas fa-dove", title="fly"></i>
+          </div>
+          <% end %>
+
+          <% if @creature.mount %>
+          <div class="col-xs-4 icon-off">
+            <i class="fas fa-car", title="mount"></i>
+          </div>
+          <% else %>
+          <div class="col-xs-4 icon-on">
+            <i class="fas fa-car", title="mount"></i>
+          </div>
+          <% end %>
+
+          <% if @creature.dangerous %>
+          <div class="col-xs-4 icon-off">
+            <i class="fas fa-exclamation-triangle", title="dangerous"></i>
+          </div>
+          <% else %>
+          <div class="col-xs-4 icon-on">
+            <i class="fas fa-exclamation-triangle", title="dangerous"></i>
+          </div>
+          <% end %>
+
+          <% if @creature.domestic %>
+          <div class="col-xs-4 icon-off">
+            <i class="fas fa-home", title="domestic"></i>
+          </div>
+          <% else %>
+          <div class="col-xs-4 icon-on">
+            <i class="fas fa-home", title="domestic"></i>
+          </div>
+          <% end %>
+
+          <% if @creature.shitty %>
+          <div class="col-xs-4 icon-off">
+            <i class="fas fa-quidditch", title="dirty"></i>
+          </div>
+          <% else %>
+          <div class="col-xs-4 icon-on">
+            <i class="fas fa-quidditch", title="dirty"></i>
+          </div>
+          <% end %>
+        </div>
+        <div class="row">
+          <% unless @creature.user_id == @user.id %>
+            <button type="button" class="btn-search" data-toggle="modal" data-target="#newBookingForm" >Book</button>
+          <% else %>
+            <%= link_to "Edit Creature", "#", class: "btn-search", type: "button"%>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newBookingForm" >Book it</button>
+
 <%= render 'bookings/new' %>
+

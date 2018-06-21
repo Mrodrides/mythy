@@ -42,13 +42,9 @@
 .btn-search {
   font-family: 'Roboto', sans-serif;
   font-style: italic;
-  text-shadow: 1px 3px black;
   font-weight: bold;
   color: #071E22;
-  font-size: 28px;
-}
-
-.btn-search input {
+  font-size: 30px;
   background-color: white;
   display: inline-block;
   margin: 22px;
@@ -57,14 +53,18 @@
   border-radius: 40px;
   transition: all 0.3s;
   &:hover {
-    border: 7px inset #1C7570;
+    border: 7px inset #FF7E45;
   }
 }
 
-#search {
-  border-radius :6px;
+.btn-search input {
+  border: none;
+}
+
+#search-creature {
+  border-radius: 6px;
   &:focus {
-    border: 5px solid #29AAA4
+    border: 5px solid #FF7E45;
   }
 }
 
