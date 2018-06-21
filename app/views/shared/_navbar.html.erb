@@ -6,7 +6,7 @@
   <% end %>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <div class="navbar-wagon-right hidden-xs   hidden-sm">
 
     <% if user_signed_in? %>
 
@@ -21,7 +21,7 @@
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <% if current_user.picture.url.nil? %>
-            <%= image_tag "avatar.jpeg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <%= image_tag "https://res.cloudinary.com/robopro/image/upload/v1529505073/avatar.jpg", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
             <%= cl_image_tag current_user.picture, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown", title: "#{current_user.username}" %>
           <% end %>
