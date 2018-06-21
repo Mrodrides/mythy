@@ -370,6 +370,13 @@ const styles = [
 ];
 
 const mapElement = document.getElementById('map');
+
+function animateCard(card) {
+  console.log(card);
+  card.classList.toggle("card-active");
+  setTimeout(function(){card.classList.toggle("card-active")}, 500);
+}
+
 if (mapElement) { // don't try to build a map if there's no div#map to inject in
   const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
   map.addStyle({
@@ -378,8 +385,17 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   });
   map.setStyle('map_style');
   const markers = JSON.parse(mapElement.dataset.markers);
-  markers.forEach((position) => {
-    map.addMarker(position);
+  let i = 0;
+  markers.forEach((parameters) => {
+    i++;
+    map.addMarker({
+      lat: parameters.lat,
+      lng: parameters.lng,
+      label: i.toString(),
+      click: function(i) {
+        animateCard(document.querySelectorAll(".card")[parseInt(i.label) - 1])
+      }
+    });
   })
   if (markers.length === 0) {
     map.setZoom(2);
