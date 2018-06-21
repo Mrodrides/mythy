@@ -1,0 +1,42 @@
+<div class="container-fluid">
+  <div class="container">
+    <h1> Manage your bookings </h1>
+
+    <div class="tabs">
+      <a class="tab" href="#">
+        <h3>Your bookings</h3>
+      </a>
+      <ul class="tab-content booking-incoming">
+        <% @outgoing.each do |booking| %>
+        <li class="booking">
+          <div class="booking-details">
+            <p>
+              <%= booking.start_date %>
+              <%= booking.end_date %>
+              <%= booking.status %>
+            </p>
+          </div>
+        </li>
+      </ul>
+      <% end %>
+
+      <a class="tab" href="#">
+        <h3>Booking requests</h3>
+      </a>
+      <ul class="tab-content booking-outgoing">
+        <% @incoming.each do |booking| %>
+        <li class="booking">
+          <div class="booking-details">
+            <p>
+              <%= booking[0].start_date %>
+              <%= booking[0].end_date %>
+              <%= booking[0].status %>
+            </p>
+          </div>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
