@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
 
   def create
     # I cant book my own creature
-    raise
+    parse_dates
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
     if @booking.save
@@ -38,8 +38,14 @@ class BookingsController < ApplicationController
 
   private
 
+  def parse_dates
+    params[:booking][:start_date] = Date.parse(params[:booking][:start_date])
+    params[:booking][:end_date] = Date.parse(params[:booking][:end_date])
+  end
+
   def booking_params
     #idk
+    params.require(:booking).permit(:start_date, :end_date, :creature_id)
   end
 
   def set_booking
