@@ -1,0 +1,21 @@
+.tabs a {
+  color: white;
+  &:active {
+    color: #030F10;
+  }
+}
+.tabs a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.8;
+  color: #030F10;
+}
+
+.tabs p {
+  opacity: 0.5;
+  margin-bottom: 0;
+}
+.tab {
+  display: flex;
+  justify-content: center;
+}
