@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking
+  before_action :set_booking, only: [:update, :destroy]
   def index
     @incoming = []
     current_user.creatures.each do |creature|
@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
   def update
     raise
     # I can only update if Im the recipent of the booking
-    # if current_user.id == 
+    # if current_user.id ==
   end
 
   def destroy
