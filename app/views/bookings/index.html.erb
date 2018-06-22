@@ -49,7 +49,7 @@
               <div class="message" data-booking-id="<%= booking.id %>">
                 <%= render 'booking', booking: booking %>
                 <div class="message-status">
-                  <%= link_to "Review!", "#", class: "btn btn-success", method: :patch, remote: true %>
+                  <%= link_to "Review!", "#", class: "btn btn-cancel", method: :patch, remote: true %>
                 </div>
               </div>
             <% end %>
@@ -108,7 +108,7 @@
             <div class="message" data-booking-id="<%= booking.id %>">
               <%= render 'booking', booking: booking %>
               <div class="message-status">
-                <%= link_to "Review!", "#", class: "btn btn-success", method: :patch, remote: true %>
+                <%= link_to "Review!", "#", class: "btn btn-cancel", method: :patch, remote: true %>
               </div>
             </div>
           <% end %>
