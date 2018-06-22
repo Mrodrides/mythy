@@ -1,8 +1,12 @@
 import GMaps from 'gmaps/gmaps.js';
 import { autocomplete } from '../components/autocomplete';
+import { autocomplete2 } from '../components/autocomplete2';
+import { autocomplete3 } from '../components/autocomplete3';
 import { toogleTab } from './bookingManagement';
 
 autocomplete();
+autocomplete2();
+autocomplete3();
 
 const styles = [
 {

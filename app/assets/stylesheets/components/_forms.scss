@@ -89,7 +89,10 @@
   justify-content: center;
 }
 
+.pac-container {
+  z-index: 10000 !important;
+}
+
 .form-group input {
   color: black !important;
 }
-
