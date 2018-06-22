@@ -67,6 +67,9 @@
                   Total price: €<%= (booking.end_date- booking.start_date)*booking.creature.price %>
                 </p>
               </div>
+              <div class="message-status">
+                <%= link_to "Cancel", booking_path(booking, status: "cancelled"), class: "btn btn-warning", method: :patch %>
+              </div>
             </div>
           <% end %>
         <% end %>
