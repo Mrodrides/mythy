@@ -36,8 +36,14 @@ USER_EMAILS = ["user01@test.com", "user02@test.com", "user03@test.com", "user04@
 PASSWORD = "password"
 FIRST_NAMES = ["Eminem", "Clara", "Dagobert", "Pepito", "Evelyn"]
 LAST_NAMES = ["Bonaparte", "Janssens", "Maes", "Mertens", "Jacobs"]
+USER_PICTURES_URLS = ["https://kitt.lewagon.com/placeholder/users/robopro",
+                      "https://kitt.lewagon.com/placeholder/users/danielgordon1",
+                      "https://kitt.lewagon.com/placeholder/users/Neoxan",
+                      "https://kitt.lewagon.com/placeholder/users/clarisb",
+                      "https://kitt.lewagon.com/placeholder/users/tchappe1"]
 
 puts 'Creating users'
+i = 0;
 USER_EMAILS.each do |email|
   first_name = FIRST_NAMES.sample
   new_user = User.new(email: email,
@@ -47,13 +53,15 @@ USER_EMAILS.each do |email|
                       first_name: first_name,
                       second_name: LAST_NAMES.sample,
                       address: "#{STREET_NUMBERS.sample} #{STREETS.sample}, #{CITY}")
+  new_user.remote_picture_url = USER_PICTURES_URLS[i]
   new_user.save
+  i += 1
 end
 
 puts 'Creating creatures'
 creatures = []
 # CHANGE NUMBER OF CREATURES TO MORE FOR HEROKU!!!
-50.times do
+5.times do
   new_creature =Creature.new({user: User.all.sample,
                               name: CREATURE_NAMES.sample,
                               address: "#{STREET_NUMBERS.sample} #{STREETS.sample}, #{CITY}",
