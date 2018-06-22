@@ -99,7 +99,7 @@
   </div>
 </div>
 
-<% if @creature.user_id == @user.id %>
+<% if !@user.nil? && @creature.user_id == @user.id %>
   <%= render 'shared/updatecreature' %>
 <% else %>
   <%= render 'bookings/new' %>

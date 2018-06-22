@@ -73,7 +73,7 @@
   color: white;
 }
 
-a {
+.link-style {
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
@@ -91,4 +91,8 @@ a {
 
 .pac-container {
   z-index: 10000 !important;
+}
+
+.form-group input {
+  color: black !important;
 }
