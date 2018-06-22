@@ -68,10 +68,12 @@
           <% end %>
         </div>
         <div class="row">
-          <% unless @creature.user_id == @user.id %>
-            <button type="button" class="btn-search" data-toggle="modal" data-target="#newBookingForm" >Book</button>
+          <% if @user.nil? %>
+            <button type="button" class="btn-search" data-toggle="modal" data-target="#loginForm" >Login</button>
+          <% elsif @creature.user_id == @user.id %>
+            <%= link_to "Edit", "#", class: "btn-search", type: "button"%>
           <% else %>
-            <%= link_to "Edit Creature", "#", class: "btn-search", type: "button"%>
+            <button type="button" class="btn-search" data-toggle="modal" data-target="#newBookingForm" >Book</button>
           <% end %>
         </div>
       </div>
