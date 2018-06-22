@@ -1,0 +1,91 @@
+.modal-content {
+  background-color: #05272D;
+  border-radius: 15px;
+  border: 3px solid #FF7E45;
+}
+
+.modal-header {
+  border-bottom: 3px dotted #FF7E45;
+}
+
+.modal-title {
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  font-style: italic;
+  font-size: 35px;
+  font-weight: bold;
+  text-shadow: 1px 3px black;
+  opacity: 0.9;
+}
+
+.form-control-label {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 15px;
+  font-weight: lighter;
+  color: white;
+  opacity: 0.8,
+}
+
+.form-group {
+  border-radius: 4px;
+}
+
+.file {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 15px;
+  font-weight: lighter;
+  color: white;
+  opacity: 0.8,
+}
+
+.form-control {
+  border-radius: 4px;
+  &:focus {
+    border: 3px solid #FF7E45;
+  }
+}
+
+.form-check-label {
+  color: #FF7E45;
+}
+
+.modal-footer {
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-body-login {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.form-group-login {
+  justify-content: center;
+  margin: auto;
+}
+
+.string.required {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 20px;
+  font-weight: lighter;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  color: #FF7E45;
+  &:hover {
+    text-decoration: none;
+    color: #9AD4D6;
+  }
+}
+
+.modal-body-book {
+  display: flex;
+  justify-content: center;
+}
+
