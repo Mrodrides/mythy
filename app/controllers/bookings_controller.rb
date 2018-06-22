@@ -48,7 +48,7 @@ class BookingsController < ApplicationController
 
   def overlaps?
     @booking.creature.bookings.where(status: "accepted").each do |booking|
-      if @booking.start_date <= booking.end_date && booking.start_date <= @booking.end_date
+      if params[:status] == "accepted" && @booking.start_date <= booking.end_date && booking.start_date <= @booking.end_date
         return true
       else
         return false
