@@ -23,8 +23,14 @@ class BookingsController < ApplicationController
 
   def update
     @booking.status = params[:status]
-    @booking.save
-    redirect_to bookings_path
+    if @booking.save
+      respond_to do |format|
+        format.html { redirect_to bookings_path }
+        format.js
+      end
+    else
+      redirect_to bookings_path, alert: @booking.errors.full_messages.join("; ")
+    end
   end
 
   def destroy

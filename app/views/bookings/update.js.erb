@@ -1,0 +1,21 @@
+function swap(innerHTML, status) {
+  document.querySelector("[data-booking-id='<%= @booking.id %>']")
+  .remove();
+  if (status === "accepted") {
+    const list = document.getElementById("owner-approved");
+    list.insertAdjacentHTML('afterbegin', innerHTML);
+  };
+  if (status === "cancelled") {
+    const list = document.getElementById("owner-cancelled");
+    list.insertAdjacentHTML('afterbegin', innerHTML);
+  };
+}
+
+<% if @booking.status == "accepted" %>
+  swap('<%= j render "update", booking: @booking %>',"accepted");
+<% end %>
+<% if @booking.status == "declined" %>
+  swap('<%= j render "update", booking: @booking %>',"cancelled");
+<% end %>
+
+

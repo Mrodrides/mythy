@@ -1,0 +1,18 @@
+<div class="message-name">
+  <%= link_to cl_image_tag(booking.creature.picture, width: 150, height: 150, crop: :thumb, radius: "max", fetch_format: "png"), creature_path(booking.creature) %>
+  <h3><%= link_to booking.creature.name, creature_path(booking.creature) %></h3>
+</div>
+<div class="message-body">
+  <p>
+    <h3>Start: <%= booking.start_date %></h3>
+    <h3>End:   <%= booking.end_date %></h3>
+  </p>
+</div>
+<div class="message-body">
+  <p class="price">
+    Price per day: €<%= booking.creature.price %>
+  </p>
+  <p class="price">
+    Total price: €<%= (booking.end_date- booking.start_date)*booking.creature.price %>
+  </p>
+</div>
