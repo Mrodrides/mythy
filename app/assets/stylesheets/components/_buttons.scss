@@ -10,10 +10,60 @@
   width: 40%;
   padding: 9px 10px;
   border-radius: 40px;
-  transition: all 0.3s;
+  border: 9px outset #9AD4D6;
+  transition: all 0.5s;
   &:hover {
-    border: 7px inset #FF7E45;
+    border: 9px inset #FF7E45;
   }
+}
+
+.btn-primary {
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  color: white;
+  font-size: 28px;
+  border: 9px inset #FF7E45;
+  background-color: #05272D;
+  display: inline-block;
+  margin: 22px;
+  padding: 9px 10px;
+  border-radius: 40px;
+  transition: all 0.4s;
+  text-shadow: 1px 2px #05272D;
+  &:hover {
+    border: 9px outset #9AD4D6;
+    background-color: #05272D;
+  }
+}
+
+.btn-login {
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  font-size: 22px;
+  border: 8px inset #FF7E45;
+  background-color: #05272D;
+  display: inline-block;
+  margin: auto;
+  border-radius: 40px;
+  transition: all 0.4s;
+  text-shadow: 1px 2px #05272D;
+  height: 30%;
+  &:hover {
+    border: 8px outset #9AD4D6;
+    background-color: #05272D;
+    color: #FF7E45;
+  }
+}
+
+.close {
+  color: #FF7E45;
+  font-size: 35px;
+  text-shadow: none;
+  opacity: 0.8;
 }
 
 .btn-search input {
@@ -33,13 +83,33 @@
   padding: 5px 6px;
   border-radius: 30px;
   transition: all 0.3s;
+  border: 4px inset #FF7E45;
   &:hover {
     border: 4px inset #9AD4D6;
     background-color: #FF7E45;
   }
 }
 
-
+.btn-cancel {
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-weight: lighter;
+  color: #FF7E45;
+  font-size: 12px;
+  background-color: white;
+  display: inline-block;
+  margin: 15px;
+  width: auto;
+  padding: 5px 6px;
+  border-radius: 30px;
+  transition: all 0.3s;
+  border: 4px inset #9AD4D6;
+  &:hover {
+    border: 4px inset #FF7E45;
+    background-color: #9AD4D6;
+    color: white;
+  }
+}
 
 .btn-warning {
   font-family: 'Roboto', sans-serif;
@@ -54,6 +124,7 @@
   padding: 5px 6px;
   border-radius: 30px;
   transition: all 0.3s;
+  border: 4px inset #9AD4D6;
   &:hover {
     border: 4px inset #FF7E45;
     background-color: #9AD4D6;

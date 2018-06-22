@@ -22,7 +22,7 @@
                 <%= render 'booking', booking: booking %>
                 <div class="message-status">
                   <%= link_to "Accept", booking_path(booking, status: "accepted"), class: "btn btn-success", method: :patch, remote: true %>
-                  <%= link_to "Decline", booking_path(booking, status: "declined"), class: "btn btn-warning", method: :patch, remote: true %>
+                  <%= link_to "Decline", booking_path(booking, status: "declined"), class: "btn btn-cancel", method: :patch, remote: true %>
                 </div>
               </div>
             <% end %>
