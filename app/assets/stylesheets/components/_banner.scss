@@ -39,28 +39,6 @@
   padding: 10px 15px;
 }
 
-.btn-search {
-  font-family: 'Roboto', sans-serif;
-  font-style: italic;
-  font-weight: bold;
-  color: #071E22;
-  font-size: 30px;
-  background-color: white;
-  display: inline-block;
-  margin: 22px;
-  width: 40%;
-  padding: 9px 10px;
-  border-radius: 40px;
-  transition: all 0.3s;
-  &:hover {
-    border: 7px inset #FF7E45;
-  }
-}
-
-.btn-search input {
-  border: none;
-}
-
 #search-creature {
   border-radius: 6px;
   &:focus {

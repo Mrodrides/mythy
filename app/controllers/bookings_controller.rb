@@ -13,16 +13,18 @@ class BookingsController < ApplicationController
     parse_dates
     @booking = Booking.new(booking_params)
     @booking.user_id = current_user.id
-    if @booking.save
+    if !overlaps? && @booking.save
       redirect_to bookings_path
     else
-      raise
-      redirect_to creatures_path
+      redirect_back(fallback_location: root_path, alert: "#{@booking.creature.name} is not available for those dates")
     end
   end
 
   def update
     @booking.status = params[:status]
+    if overlaps?
+      redirect_back(fallback_location: root_path, alert: "#{@booking.creature.name} is already booked for those dates")
+    end
     if @booking.save
       respond_to do |format|
         format.html { redirect_to bookings_path }
@@ -49,8 +51,17 @@ class BookingsController < ApplicationController
     params[:booking][:end_date] = Date.parse(params[:booking][:end_date])
   end
 
+  def overlaps?
+    @booking.creature.bookings.where(status: "accepted").each do |booking|
+      if params[:status] == "accepted" && @booking.start_date <= booking.end_date && booking.start_date <= @booking.end_date
+        return true
+      else
+        return false
+      end
+    end
+  end
+
   def booking_params
-    #idk
     params.require(:booking).permit(:start_date, :end_date, :creature_id, :status)
   end
 
