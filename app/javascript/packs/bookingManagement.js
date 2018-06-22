@@ -5,12 +5,15 @@ function toggleTab() {
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  document.getElementById("owner-button").addEventListener("click", (event) => {
-    toggleTab();
-  });
-  document.getElementById("booker-button").addEventListener("click", (event) => {
-    toggleTab();
-  });
+  if (document.getElementById("owner-button")) {
+    document.getElementById("owner-button").addEventListener("click", (event) => {
+      toggleTab();
+    });
+    document.getElementById("booker-button").addEventListener("click", (event) => {
+      toggleTab();
+    });
+  }
+
 });
 
 export { toggleTab }
