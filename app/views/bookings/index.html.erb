@@ -1,112 +1,130 @@
 <div class="container">
   <ul class="nav nav-tabs tabs tab">
-    <li class="active"><a data-toggle="tab" href="#home">Your Requests</a></li>
-    <li><a data-toggle="tab" href="#approved">Approved</a></li>
-    <li><a data-toggle="tab" href="#pending">Pending</a></li>
+    <li class="active" id="owner-button"><a data-toggle="tab">My creatures</a></li>
+    <li id="booker-button"><a data-toggle="tab">My bookings</a></li>
   </ul>
 
-  <div class="tab-content tabs">
-    <div id="home" class="tab-pane fade in active">
-      <% @outgoing.each do |booking| %>
-        <div class="message">
-          <div class="message-name">
-            <%= link_to cl_image_tag(booking.creature.picture, width: 150, height: 150, crop: :thumb, radius: "max", fetch_format: "png"), creature_path(booking.creature) %>
-            <h3><%= link_to booking.creature.name, creature_path(booking.creature) %></h3>
-          </div>
-          <div class="message-body">
-            <p>
-              <h3>Start: <%= booking.start_date %></h3>
-              <h3>End:   <%= booking.end_date %></h3>
-            </p>
-          </div>
-          <div class="message-body">
-            <p class="price">
-              Price per day: €<%= booking.creature.price %>
-            </p>
-            <p class="price">
-              Total price: €<%= (booking.end_date- booking.start_date)*booking.creature.price %>
-            </p>
-          </div>
-          <div class="message-status">
+  <div class="container" id="owner-bookings">
+    <ul class="nav nav-tabs tabs tab">
+      <li class="active"><a data-toggle="tab" href="#owner-pending">Pending</a></li>
+      <li><a data-toggle="tab" href="#owner-cancelled">Cancelled</a></li>
+      <li><a data-toggle="tab" href="#owner-approved">Approved</a></li>
+      <li><a data-toggle="tab" href="#owner-completed">Completed</a></li>
+    </ul>
+
+    <div class="tab-content tabs">
+
+      <div id="owner-pending" class="tab-pane fade active in">
+        <% @incoming.each do |creature| %>
+          <% creature.each do |booking| %>
             <% if booking.status == "pending" %>
-              <p class="status pending">Pending</p>
-              <%= link_to "Cancel", booking_path(booking, status: "cancelled"), class: "btn btn-cancel", method: :patch %>
-            <% elsif booking.status == "accepted" %>
-              <p class="status accepted">Accepted</p>
-              <%= link_to "Cancel", booking_path(booking, status: "cancelled"), class: "btn btn-cancel", method: :patch %>
-            <% elsif booking.status == "cancelled" %>
-              <p class="status declined">Cancelled</p>
-            <% else %>
-              <p class="status declined">Declined</p>
+              <div class="message" data-booking-id="<%= booking.id %>">
+                <%= render 'booking', booking: booking %>
+                <div class="message-status">
+                  <%= link_to "Accept", booking_path(booking, status: "accepted"), class: "btn btn-success", method: :patch, remote: true %>
+                  <%= link_to "Decline", booking_path(booking, status: "declined"), class: "btn btn-cancel", method: :patch, remote: true %>
+                </div>
+              </div>
             <% end %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-
-    <div id="approved" class="tab-pane fade">
-      <% @incoming.each do |creature| %>
-        <% creature.each do |booking| %>
-          <% if booking.status == "accepted" %>
-            <div class="message">
-              <div class="message-name">
-                <%= link_to cl_image_tag(booking. creature.picture, width: 150, height: 150, crop: :thumb, radius: "max", fetch_format: "png"), creature_path(booking.creature) %>
-                <h3><%= link_to booking.creature.name, creature_path(booking.creature) %></h3>
-              </div>
-              <div class="message-body">
-                <p>
-                  <h3>Start: <%= booking.start_date %></h3>
-                  <h3>End:   <%= booking.end_date %></h3>
-                </p>
-              </div>
-              <div class="message-body">
-                <p class="price">
-                  Price per day: €<%= booking.creature.price %>
-                </p>
-                <p class="price">
-                  Total price: €<%= (booking.end_date- booking.start_date)*booking.creature.price %>
-                </p>
-              </div>
-              <div class="message-status">
-                <%= link_to "Cancel", booking_path(booking, status: "cancelled"), class: "btn btn-warning", method: :patch %>
-              </div>
-            </div>
           <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
 
-    <div id="pending" class="tab-pane fade">
-      <% @incoming.each do |creature| %>
-        <% creature.each do |booking| %>
+      <div id="owner-cancelled" class="tab-pane fade">
+        <% @incoming.each do |creature| %>
+          <% creature.each do |booking| %>
+            <% if booking.status == "declined" %>
+              <div class="message" data-booking-id="<%= booking.id %>">
+                <%= render 'booking', booking: booking %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div id="owner-approved" class="tab-pane fade">
+        <% @incoming.each do |creature| %>
+          <% creature.each do |booking| %>
+            <% if booking.status == "accepted" %>
+              <div class="message" data-booking-id="<%= booking.id %>">
+                <%= render 'booking', booking: booking %>
+                <div class="message-status">
+                  <%= link_to "Review!", "#", class: "btn btn-cancel", method: :patch, remote: true %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div id="owner-completed" class="tab-pane fade">
+        <% @incoming.each do |creature| %>
+          <% creature.each do |booking| %>
+            <% if booking.status == "completed" %>
+              <div class="message" data-booking-id="<%= booking.id %>">
+                <%= render 'booking', booking: booking %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="container no-display" id="booker-bookings">
+    <ul class="nav nav-tabs tabs tab">
+      <li class="active"><a data-toggle="tab" href="#booker-pending">Pending</a></li>
+      <li><a data-toggle="tab" href="#booker-cancelled">Declined</a></li>
+      <li><a data-toggle="tab" href="#booker-approved">Approved</a></li>
+      <li><a data-toggle="tab" href="#booker-completed">Completed</a></li>
+    </ul>
+
+    <div class="tab-content tabs">
+
+      <div id="booker-pending" class="tab-pane fade active in">
+        <% @outgoing.each do |booking| %>
           <% if booking.status == "pending" %>
-            <div class="message">
-              <div class="message-name">
-                <%= link_to cl_image_tag(booking.creature.picture, width: 150, height: 150, crop: :thumb, radius: "max", fetch_format: "png"), creature_path(booking.creature) %>
-                <h3><%= link_to booking.creature.name, creature_path(booking.creature) %></h3>
-              </div>
-              <div class="message-body">
-                <p>
-                  <h3>Start: <%= booking.start_date %></h3>
-                  <h3>End:   <%= booking.end_date %></h3>
-                </p>
-              </div>
-              <div class="message-body">
-                <p class="price">
-                  Price per day: €<%= booking.creature.price %>
-                </p>
-                <p class="price">
-                  Total price: €<%= (booking.end_date- booking.start_date)*booking.creature.price %>
-                </p>
-              </div>
+            <div class="message" data-booking-id="<%= booking.id %>">
+              <%= render 'booking', booking: booking %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div id="booker-cancelled" class="tab-pane fade">
+        <% @outgoing.each do |booking| %>
+          <% if booking.status == "declined" %>
+            <div class="message" data-booking-id="<%= booking.id %>">
+              <%= render 'booking', booking: booking %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div id="booker-approved" class="tab-pane fade">
+        <% @outgoing.each do |booking| %>
+          <% if booking.status == "accepted" %>
+            <div class="message" data-booking-id="<%= booking.id %>">
+              <%= render 'booking', booking: booking %>
               <div class="message-status">
-                <%= link_to "Accept", booking_path(booking, status: "accepted"), class: "btn btn-success", method: :patch %>
-                <%= link_to "Decline", booking_path(booking, status: "declined"), class: "btn btn-warning", method: :patch %>
+                <%= link_to "Review!", "#", class: "btn btn-cancel", method: :patch, remote: true %>
               </div>
             </div>
           <% end %>
         <% end %>
-      <% end %>
+      </div>
+
+      <div id="booker-completed" class="tab-pane fade">
+        <% @outgoing.each do |booking| %>
+          <% if booking.status == "completed" %>
+            <div class="message" data-booking-id="<%= booking.id %>">
+              <%= render 'booking', booking: booking %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </div>

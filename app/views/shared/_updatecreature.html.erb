@@ -1,15 +1,15 @@
-<div class="modal fade" id="newCreatureForm" tabindex="-1" role="dialog" aria-labelledby="newCreatureModalLabel" aria-hidden="true">
+<div class="modal fade" id="updateCreatureForm" tabindex="-1" role="dialog" aria-labelledby="updateCreatureModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
       <div class="modal-header">
-        <h5 class="modal-title text-center" id="newCreatureModalLabel">Create a creature</h5>
+        <h5 class="modal-title text-center" id="updateCreatureModalLabel">Update <%= @creature.name %></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
 
-      <%= simple_form_for Creature.new do |f| %>
+      <%= simple_form_for @creature do |f| %>
         <div class="modal-body">
           <div class="form-group">
             <%= f.input :name, placeholder: 'fluffy', label: 'Creature name' , input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
@@ -48,7 +48,7 @@
 
         <div class="modal-footer">
           <div class="form-group">
-            <%= f.button :submit, "Create!", class: "btn btn-primary" %>
+            <%= f.button :submit, "Update", class: "btn btn-primary" %>
           </div>
         </div>
       <% end %>
