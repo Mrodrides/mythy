@@ -89,7 +89,25 @@
   }
 }
 
-
+.btn-cancel {
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-weight: lighter;
+  color: #FF7E45;
+  font-size: 12px;
+  background-color: white;
+  display: inline-block;
+  margin: 15px;
+  width: auto;
+  padding: 5px 6px;
+  border-radius: 30px;
+  transition: all 0.3s;
+  &:hover {
+    border: 4px inset #FF7E45;
+    background-color: #9AD4D6;
+    color: white;
+  }
+}
 
 .btn-warning {
   font-family: 'Roboto', sans-serif;
@@ -100,7 +118,7 @@
   background-color: white;
   display: inline-block;
   margin: 15px;
-  width: auto;
+  width: 37%;
   padding: 5px 6px;
   border-radius: 30px;
   transition: all 0.3s;

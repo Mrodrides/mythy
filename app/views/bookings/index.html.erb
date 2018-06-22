@@ -30,10 +30,10 @@
           <div class="message-status">
             <% if booking.status == "pending" %>
               <p class="status pending">Pending</p>
-              <%= link_to "Cancel", booking_path(booking, status: "cancelled"), class: "btn btn-warning", method: :patch %>
+              <%= link_to "Cancel", booking_path(booking, status: "cancelled"), class: "btn btn-cancel", method: :patch %>
             <% elsif booking.status == "accepted" %>
               <p class="status accepted">Accepted</p>
-              <%= link_to "Cancel", booking_path(booking, status: "cancelled"), class: "btn btn-warning", method: :patch %>
+              <%= link_to "Cancel", booking_path(booking, status: "cancelled"), class: "btn btn-cancel", method: :patch %>
             <% elsif booking.status == "cancelled" %>
               <p class="status declined">Cancelled</p>
             <% else %>
