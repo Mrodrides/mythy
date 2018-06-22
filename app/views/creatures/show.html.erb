@@ -99,6 +99,9 @@
   </div>
 </div>
 
-<%= render 'bookings/new' %>
-<%= render 'shared/updatecreature' %>
+<% if @creature.user_id == @user.id %>
+  <%= render 'shared/updatecreature' %>
+<% else %>
+  <%= render 'bookings/new' %>
+<% end %>
 
