@@ -30,6 +30,8 @@ class CreaturesController < ApplicationController
   end
 
   def update
+    @creature.update(creature_params)
+    redirect_to creature_path(@creature)
   end
 
   def delete

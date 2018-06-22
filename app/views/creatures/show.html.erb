@@ -71,7 +71,7 @@
           <% if @user.nil? %>
             <button type="button" class="btn-search" data-toggle="modal" data-target="#loginForm" >Login</button>
           <% elsif @creature.user_id == @user.id %>
-            <%= link_to "Edit", "#", class: "btn-search", type: "button"%>
+            <%= link_to "Edit", "#", class: "btn-search", "data-toggle" => "modal", "data-target" => "#updateCreatureForm" %>
           <% else %>
             <button type="button" class="btn-search" data-toggle="modal" data-target="#newBookingForm" >Book</button>
           <% end %>
@@ -100,4 +100,5 @@
 </div>
 
 <%= render 'bookings/new' %>
+<%= render 'shared/updatecreature' %>
 

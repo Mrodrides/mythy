@@ -1,0 +1,58 @@
+<div class="modal fade" id="updateCreatureForm" tabindex="-1" role="dialog" aria-labelledby="updateCreatureModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title text-center" id="updateCreatureModalLabel">Update <%= @creature.name %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <%= simple_form_for @creature do |f| %>
+        <div class="modal-body">
+          <div class="form-group">
+            <%= f.input :name, placeholder: 'fluffy', label: 'Creature name' , input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :address, placeholder: '3 Edgar Buildings George Street Bath England BA1 2FJ', label: 'Address', input_html: { class: 'form-control', id: "search-creature" }, label_html: { class: "col-form-label" } %>
+          </div>
+
+          <div class="form-group">
+            <%= f.input :picture, label: 'Picture', input_html: { class: 'custom-file-input', type: "file" }, label_html: { class: "col-form-label" } %>
+            <%= f.input :picture_cache, as: :hidden %>
+          </div>
+
+          <div class="form-group">
+            <%= f.input :price, placeholder: '200', label: 'Price per day', input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :description, placeholder: 'A charming dragon who loves to play with fire', label: 'Description', input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :care, placeholder: 'He needs to sleep in a nice area and outside of the house', label: 'Caring details', input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
+          </div>
+          <div class="form-group">
+            <%= f.input :diet, placeholder: 'He eat cookies', label: 'Diet', input_html: { class: 'form-control' }, label_html: { class: "col-form-label" } %>
+          </div>
+
+          <div class="row">
+            <div class="form-check form-check-inline col-xs-2"><%= f.input :wifi, as: :boolean, label_html: { class: 'fas fa-wifi' }, label: '&nbsp;'.html_safe %></div>
+            <div class="form-check form-check-inline col-xs-2"><%= f.input :fly, as: :boolean, label_html: { class: 'fas fa-dove' }, label: '&nbsp;'.html_safe %></div>
+            <div class="form-check form-check-inline col-xs-2"><%= f.input :mount, as: :boolean, label_html: { class: 'fas fa-car' }, label: '&nbsp;'.html_safe %></div>
+            <div class="form-check form-check-inline col-xs-2"><%= f.input :dangerous, as: :boolean, label_html: { class: 'fas fa-exclamation-triangle' }, label: '&nbsp;'.html_safe %></div>
+            <div class="form-check form-check-inline col-xs-2"><%= f.input :shitty, as: :boolean, label_html: { class: 'fas fa-quidditch' }, label: '&nbsp;'.html_safe %></div>
+            <div class="form-check form-check-inline col-xs-2"><%= f.input :domestic, as: :boolean, label_html: { class: 'fas fa-home' }, label: '&nbsp;'.html_safe %></div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <div class="form-group">
+            <%= f.button :submit, "Update", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
