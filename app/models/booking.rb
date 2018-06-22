@@ -4,8 +4,8 @@ class Booking < ApplicationRecord
 
   validates :start_date, :end_date, presence: true
   validate :end_date_greater_than_start_date, :start_date_greater_than_today, :date_types
-  validates :status, inclusion: { in: %w(pending accepted declined),
-    message: "Status can only be: accepted, rejected or declined" }
+  validates :status, inclusion: { in: %w(pending accepted declined cancelled),
+    message: "Status can only be: accepted, rejected, declined or cancelled" }
 
   private
 
