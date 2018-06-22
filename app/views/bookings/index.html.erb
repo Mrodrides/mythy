@@ -41,59 +41,63 @@
     </div>
 
     <div id="approved" class="tab-pane fade">
-      <% @incoming.each do |booking| %>
-        <% if booking[0].status == "accepted" %>
-          <div class="message">
-            <div class="message-name">
-              <%= link_to cl_image_tag(booking[0].creature.picture, width: 150, height: 150, crop: :thumb, radius: "max", fetch_format: "png"), creature_path(booking[0].creature) %>
-              <h3><%= link_to booking[0].creature.name, creature_path(booking[0].creature) %></h3>
+      <% @incoming.each do |creature| %>
+        <% creature.each do |booking| %>
+          <% if booking.status == "accepted" %>
+            <div class="message">
+              <div class="message-name">
+                <%= link_to cl_image_tag(booking. creature.picture, width: 150, height: 150, crop: :thumb, radius: "max", fetch_format: "png"), creature_path(booking.creature) %>
+                <h3><%= link_to booking.creature.name, creature_path(booking.creature) %></h3>
+              </div>
+              <div class="message-body">
+                <p>
+                  <h3>Start: <%= booking.start_date %></h3>
+                  <h3>End:   <%= booking.end_date %></h3>
+                </p>
+              </div>
+              <div class="message-body">
+                <p class="price">
+                  Price per day: €<%= booking.creature.price %>
+                </p>
+                <p class="price">
+                  Total price: €<%= (booking.end_date- booking.start_date)*booking.creature.price %>
+                </p>
+              </div>
             </div>
-            <div class="message-body">
-              <p>
-                <h3>Start: <%= booking[0].start_date %></h3>
-                <h3>End:   <%= booking[0].end_date %></h3>
-              </p>
-            </div>
-            <div class="message-body">
-              <p class="price">
-                Price per day: €<%= booking[0].creature.price %>
-              </p>
-              <p class="price">
-                Total price: €<%= (booking[0].end_date- booking[0].start_date)*booking[0].creature.price %>
-              </p>
-            </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
 
     <div id="pending" class="tab-pane fade">
-      <% @incoming.each do |booking| %>
-        <% if booking[0].status == "pending" %>
-          <div class="message">
-            <div class="message-name">
-              <%= link_to cl_image_tag(booking[0].creature.picture, width: 150, height: 150, crop: :thumb, radius: "max", fetch_format: "png"), creature_path(booking[0].creature) %>
-              <h3><%= link_to booking[0].creature.name, creature_path(booking[0].creature) %></h3>
+      <% @incoming.each do |creature| %>
+        <% creature.each do |booking| %>
+          <% if booking.status == "pending" %>
+            <div class="message">
+              <div class="message-name">
+                <%= link_to cl_image_tag(booking.creature.picture, width: 150, height: 150, crop: :thumb, radius: "max", fetch_format: "png"), creature_path(booking.creature) %>
+                <h3><%= link_to booking.creature.name, creature_path(booking.creature) %></h3>
+              </div>
+              <div class="message-body">
+                <p>
+                  <h3>Start: <%= booking.start_date %></h3>
+                  <h3>End:   <%= booking.end_date %></h3>
+                </p>
+              </div>
+              <div class="message-body">
+                <p class="price">
+                  Price per day: €<%= booking.creature.price %>
+                </p>
+                <p class="price">
+                  Total price: €<%= (booking.end_date- booking.start_date)*booking.creature.price %>
+                </p>
+              </div>
+              <div class="message-status">
+                <%= link_to "Accept", booking_path(booking, status: "accepted"), class: "btn btn-success", method: :patch %>
+                <%= link_to "Decline", booking_path(booking, status: "declined"), class: "btn btn-warning", method: :patch %>
+              </div>
             </div>
-            <div class="message-body">
-              <p>
-                <h3>Start: <%= booking[0].start_date %></h3>
-                <h3>End:   <%= booking[0].end_date %></h3>
-              </p>
-            </div>
-            <div class="message-body">
-              <p class="price">
-                Price per day: €<%= booking[0].creature.price %>
-              </p>
-              <p class="price">
-                Total price: €<%= (booking[0].end_date- booking[0].start_date)*booking[0].creature.price %>
-              </p>
-            </div>
-            <div class="message-status">
-              <%= link_to "Accept", booking_path(booking[0], status: "accepted"), class: "btn btn-success", method: :patch %>
-              <%= link_to "Decline", booking_path(booking[0], status: "declined"), class: "btn btn-warning", method: :patch %>
-            </div>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
     </div>
