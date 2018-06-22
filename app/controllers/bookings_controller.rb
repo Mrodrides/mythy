@@ -21,6 +21,7 @@ class BookingsController < ApplicationController
   end
 
   def update
+    raise
     @booking.status = params[:status]
     if overlaps?
       redirect_back(fallback_location: root_path, alert: "#{@booking.creature.name} is already booked for those dates")
@@ -55,10 +56,9 @@ class BookingsController < ApplicationController
     @booking.creature.bookings.where(status: "accepted").each do |booking|
       if params[:status] == "accepted" && @booking.start_date <= booking.end_date && booking.start_date <= @booking.end_date
         return true
-      else
-        return false
       end
     end
+    return false
   end
 
   def booking_params
