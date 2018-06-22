@@ -23,6 +23,11 @@
             <div class="card-description">
               <h2><%= creature.name %></h2>
             </div>
+            <% if creature.user.picture.url.nil? %>
+              <%= cl_image_tag "https://res.cloudinary.com/robopro/image/upload/v1529505073/avatar.jpg", width: 150, height: 150, crop: :thumb, radius: "max", fetch_format: "png", class: "card-user" %>
+            <% else %>
+              <%= cl_image_tag creature.user.picture, width: 40, height: 40, crop: :thumb, radius: "max", fetch_format: "png", class: "card-user" %>
+            <% end %>
             <%= link_to "", creature_path(creature), class: "card-link" %>
           </div>
         </div>
