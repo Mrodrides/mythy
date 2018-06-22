@@ -30,8 +30,11 @@ class CreaturesController < ApplicationController
   end
 
   def update
-    @creature.update(creature_params)
-    redirect_to creature_path(@creature)
+    if @creature.update(creature_params)
+      redirect_to creature_path(@creature)
+    else
+      redirect_back(fallback_location: root_path, alert: @creature.errors.full_messages.join("; "))
+    end
   end
 
   def delete
