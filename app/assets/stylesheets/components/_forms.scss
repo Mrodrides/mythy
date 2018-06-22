@@ -73,7 +73,7 @@
   color: white;
 }
 
-a {
+.link-style {
   text-decoration: none;
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
@@ -87,5 +87,9 @@ a {
 .modal-body-book {
   display: flex;
   justify-content: center;
+}
+
+.form-group input {
+  color: black !important;
 }
 
