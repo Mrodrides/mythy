@@ -1,0 +1,16 @@
+
+
+<%= simple_form_for BookerReview.new do |f| %>
+  <div class="modal-body-book">
+    <div class="form-group">
+      <%= f.input :rating %>
+      <%= f.input :comment %>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <div class="form-group-book">
+      <%= f.button :submit, "Submit", class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

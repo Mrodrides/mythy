@@ -1,6 +1,8 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :creature
+  has_one :owner_review
+  has_one :booker_review
 
   validates :start_date, :end_date, presence: true
   validate :end_date_greater_than_start_date, :start_date_greater_than_today, :date_types
